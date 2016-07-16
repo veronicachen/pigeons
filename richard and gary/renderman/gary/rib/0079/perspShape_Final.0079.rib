@@ -1,6 +1,6 @@
 ##RenderMan RIB
 #Created by RenderMan for Maya 20.3 (@1534387 Sep 27 2015)
-#Sat Jul 16 11:08:47 PDT 2016
+#Sat Jul 16 15:30:37 PDT 2016
 version 3.04
 Option "ribparse" "string varsubst" [""]
 Option "ribparse" "string varsubst" ["$"]
@@ -50,14 +50,13 @@ Option "photon" "int emit" [0]
 Hider "raytrace" "int adaptall" [0] "string integrationmode" ["path"] "int incremental" [1] "string pixelfiltermode" ["weighted"] "int minsamples" [0] "int maxsamples" [512]
 Integrator "PxrPathTracer" "PxrPathTracer" "int maxPathLength" [10] "string sampleMode" ["bxdf"] "int numLightSamples" [8] "int numBxdfSamples" [8] "int numIndirectSamples" [1] "int numDiffuseSamples" [1] "int numSpecularSamples" [1] "int numSubsurfaceSamples" [1] "int numRefractionSamples" [1] "int rouletteDepth" [4] "float rouletteThreshold" [0.2] "string imagePlaneSubset" ["rman__imageplane"] "int clampDepth" [2] "float clampLuminance" [10] "int allowCaustics" [0]
 Format 960 540 1
-Option "user" "string[1] lightgroups" ["environment"]
-Display "renderman/gary/images/gary" "it" "rgba" "string filter" ["gaussian"] "float[2] filterwidth" [2 2] "int[4] quantize" [0 0 0 0] "float dither" [0] "float[2] exposure" [1 1] "float[3] remap" [0 0 0] "int merge" [0] "string connection" ["-launchURI /Applications/Pixar/RenderManStudio-20.3-maya2016/bin/it.app/Contents/MacOS/it"] "string dspyParams" [" itOpenHandler {::ice::startTimer;};;; itCloseHandler {::ice::endTimer %arglist; };;; dspyRender -renderer preview -time 79 -crop 0 1 0 1 -port 55239 -context \"renderman/gary/images/gary\" -notes \"(Sat Jul 16 11:08:47 PDT 2016)\nPxrPathTracer  MaxSamples 512  Mode bxdf  Light 8  Bsdf 8  Indir 1\""]
+Display "renderman/gary/images/gary" "it" "rgba" "string filter" ["gaussian"] "float[2] filterwidth" [2 2] "int[4] quantize" [0 0 0 0] "float dither" [0] "float[2] exposure" [1 1] "float[3] remap" [0 0 0] "int merge" [0] "string connection" ["-launchURI /Applications/Pixar/RenderManStudio-20.3-maya2016/bin/it.app/Contents/MacOS/it"] "string dspyParams" [" itOpenHandler {::ice::startTimer;};;; itCloseHandler {::ice::endTimer %arglist; };;; dspyRender -renderer preview -time 79 -crop 0 1 0 1 -port 55239 -context \"renderman/gary/images/gary\" -notes \"(Sat Jul 16 15:30:37 PDT 2016)\nPxrPathTracer  MaxSamples 512  Mode bxdf  Light 8  Bsdf 8  Indir 1\""]
 #Camera perspShape
 Clipping 0.1 10000
 Projection "perspective" "fov" [54.4322]
 ScreenWindow -1 1 -0.5625 0.5625
 Shutter 0 0
-ConcatTransform [ -0.238533 -0.853139 0.463956 4.18081e-10  -2.74979e-09 0.477747 0.878498 6.85693e-11  0.971134 -0.209551 0.113959 -1.54579e-09  0.677074 1.56201 13.8871 1 ]
+ConcatTransform [ -0.998971 0.0110804 0.043989 -2.73846e-08  2.10387e-08 0.969709 -0.244264 8.11545e-09  0.045363 0.244013 0.96871 -1.00698e-08  2.12308 -3.38996 7.68026 1 ]
 Camera "world" "float[2] shutteropening" [0 1]
 Option "user" "color camera_bg" [0 0 0] "float camera_bga" [0]
 Imager "background" "color color" [0 0 0] "float alpha" [0]
@@ -65,6 +64,14 @@ ResourceBegin
 WorldBegin 
 ##RLF ScopeBegin -name perspShape_Final -localbinding 1 -rlffilename renderman/gary/rib/0079/perspShape_Final.0079.rlf -namespace 
 ScopedCoordinateSystem "world_ref"
+AttributeBegin 
+CoordSysTransform "camera"
+Transform [ 0.993637 -0.0471716 -0.102272 0  -0.0471675 0.650304 -0.758209 0  0.102274 0.758208 0.643941 0  0 0 0 1 ]
+AreaLightSource "PxrAreaLight" "eb4acf0e-4ba4-11e6-b738-3c15c2c03160" "float intensity" [0.6] "string shape" ["distant"] "float temperature" [5500]
+Attribute "visibility" "int camera" [0]
+Attribute "visibility" "int indirect" [0] "int transmission" [0]
+Geometry "distantlight" 
+AttributeEnd 
 Attribute "user" "float[17] place2dTexture1" [1 1 0 0 0
 0 0 0 1 1 13.5 13.5 0 0 0 0 0]
 Attribute "user" "float[17] place2dTexture2" [1 1 0 0 0
@@ -77,38 +84,6 @@ Attribute "dice" "string referencecamera" ["worldcamera"]
 ShadingRate 1
 Attribute "displacementbound" "string coordinatesystem" ["shader"] "float sphere" [0]
 Attribute "photon" "string causticmap" [""] "string globalmap" [""]
-Attribute "user" "string irRenderCam" ["false,-4.94887,-12.946,-1.91276"]
-Attribute "user" "string irRenderCamFOV" ["54.4322"]
-Attribute "user" "string irRenderCamXform" ["-0.238533,-5.55112e-17,0.971134,0,-0.853139,0.477747,-0.209551,0,-0.463956,-0.878498,-0.113959,0,-4.94887,-12.946,-1.91276,1"]
-Attribute "user" "string irRenderCamRatio" ["1"]
-AttributeBegin 
-Attribute "identifier" "string name" ["PxrStdEnvMapLightShape1"]
-Attribute "grouping" "string membership" ["+rman__imageplane"]
-Transform [ -1 0 -1.22465e-16 0  0 1 0 0  -1.22465e-16 -0 1 0  0 0 0 1 ]
-Rotate -90 1 0 0
-Bxdf "PxrLightEmission" "visualizer" "string __instanceid" ["PxrStdEnvMapLightShape1_visualizer"]
-IfBegin "!defined(user:shader_bindingstrength) || $user:shader_bindingstrength <= 0" 
-ShadingRate 10
-Surface "renderman/gary/shaders/PxrStdEnvMapLightShape1_rfm" "float rman__LightPrimaryVisibility" [1] "float exposure" [0] "string rman__EnvMap" [""] "color envTint" [1 1 1] "float enableProcedural" [1] "float[2] rman__ProceduralResolution" [1024 512] "color proceduralColor" [1 1 1] "float enableTemperature" [0] 
-"float temperature" [6500] "color specAmount" [1 1 1] "color diffAmount" [1 1 1] "float fixedSampleCount" [-1] "float importance" [1] "float enableShadows" [1] "color shadowColor" [0 0 0] 
-"float adaptiveShadows" [1] "float shadowMaxDist" [-1] "float shadowTraceBias" [-1] "string shadowSubset" [""] "string shadowExcludeSubset" [""] "string __group" ["environment"] "float intensity" [1] "string coordSys" ["shader"] "__instanceid" ["renderman/gary/shaders/PxrStdEnvMapLightShape1_rfm_0"]
-ShadingRate 10
-AreaLightSource "renderman/gary/shaders/PxrStdEnvMapLightShape1_rfm" "PxrStdEnvMapLightShape1" "float rman__LightPrimaryVisibility" [1] "float exposure" [0] "string rman__EnvMap" [""] "color envTint" [1 1 1] "float enableProcedural" [1] "float[2] rman__ProceduralResolution" [1024 512] "color proceduralColor" [1 1 1] "float enableTemperature" [0] 
-"float temperature" [6500] "color specAmount" [1 1 1] "color diffAmount" [1 1 1] "float fixedSampleCount" [-1] "float importance" [1] "float enableShadows" [1] "color shadowColor" [0 0 0] 
-"float adaptiveShadows" [1] "float shadowMaxDist" [-1] "float shadowTraceBias" [-1] "string shadowSubset" [""] "string shadowExcludeSubset" [""] "string __group" ["environment"] "float intensity" [1] "string coordSys" ["shader"] "__instanceid" ["renderman/gary/shaders/PxrStdEnvMapLightShape1_rfm_0"]
-Attribute "user" "int shader_bindingstrength" [0]
-IfEnd 
-Attribute "visibility" "int camera" [1]
-Attribute "visibility" "int indirect" [0] "int transmission" [0]
-ShadingRate 10
-Sides 1
-Attribute "dice" "string offscreenstrategy" ["sphericalprojection"]
-ReverseOrientation 
-Opacity [1 1 1]
-Sides 1
-Geometry "envsphere" "constant float[2] resolution" [1024 512]
-AttributeEnd 
-Illuminate "PxrStdEnvMapLightShape1" 1
 AttributeBegin 
 AttributeEnd 
 AttributeBegin 
@@ -119,12 +94,12 @@ AttributeBegin
 AttributeEnd 
 AttributeBegin 
 Attribute "identifier" "string name" ["left_eye"]
-Attribute "identifier" "float id" [4]
+Attribute "identifier" "float id" [3]
 ConcatTransform [ 0.205882 0 0 0  0 0.205882 0 0  0 0 0.205882 0  0.100741 5.36133 0.595118 1 ]
 AttributeBegin 
 AttributeBegin 
 Attribute "identifier" "string name" ["left_eyeShape"]
-Attribute "identifier" "float id" [11]
+Attribute "identifier" "float id" [9]
 Sides 2
 ShadingInterpolation "smooth"
 Attribute "user" "int receivesShadows" [1]
@@ -140,12 +115,12 @@ AttributeEnd
 AttributeEnd 
 AttributeBegin 
 Attribute "identifier" "string name" ["gary"]
-Attribute "identifier" "float id" [3]
-ConcatTransform [ 1 0 0 0  0 1 0 0  0 0 1 0  0 0 0 1 ]
+Attribute "identifier" "float id" [2]
+ConcatTransform [ 1 0 0 0  0 1 0 0  0 0 1 0  -0.0168796 -0.0145491 -0.0166455 1 ]
 AttributeBegin 
 AttributeBegin 
 Attribute "identifier" "string name" ["garyShape"]
-Attribute "identifier" "float id" [10]
+Attribute "identifier" "float id" [8]
 Sides 2
 ShadingInterpolation "smooth"
 Attribute "user" "int receivesShadows" [1]
@@ -163,12 +138,12 @@ AttributeEnd
 AttributeEnd 
 AttributeBegin 
 Attribute "identifier" "string name" ["right_eye"]
-Attribute "identifier" "float id" [6]
+Attribute "identifier" "float id" [5]
 ConcatTransform [ 0.205882 0 0 0  0 0.205882 0 0  0 0 0.205882 0  0.100741 5.36133 -0.594468 1 ]
 AttributeBegin 
 AttributeBegin 
 Attribute "identifier" "string name" ["right_eyeShape"]
-Attribute "identifier" "float id" [13]
+Attribute "identifier" "float id" [11]
 Sides 2
 ShadingInterpolation "smooth"
 Attribute "user" "int receivesShadows" [1]
@@ -182,15 +157,8 @@ TransformEnd
 AttributeEnd 
 AttributeEnd 
 AttributeEnd 
-AttributeBegin 
-Attribute "identifier" "string name" ["PxrStdEnvMapLight1"]
-Attribute "identifier" "float id" [1]
-ConcatTransform [ -230.347 -0 -0 0  0 230.347 0 0  0 0 230.347 0  0 0 0 1 ]
-AttributeBegin 
-AttributeEnd 
-AttributeEnd 
 ##RLF ScopeEnd -name perspShape_Final
 WorldEnd 
 ResourceEnd 
-##streammarker 6
+##streammarker 7
 FrameEnd 
