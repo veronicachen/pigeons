@@ -1,6 +1,6 @@
 ##RenderMan RIB
 #Created by RenderMan for Maya 20.3 (@1534387 Sep 27 2015)
-#Sat Jul 16 11:06:38 PDT 2016
+#Sat Jul 16 18:22:58 PDT 2016
 version 3.04
 Option "ribparse" "string varsubst" [""]
 Option "ribparse" "string varsubst" ["$"]
@@ -48,16 +48,17 @@ Option "shading" "int directlightingsamples" [4]
 CropWindow 0 1 0 1
 Option "photon" "string lifetime" ["transient"]
 Option "photon" "int emit" [0]
-Hider "raytrace" "int adaptall" [0] "string integrationmode" ["path"] "int incremental" [1] "string pixelfiltermode" ["weighted"] "int minsamples" [0] "int maxsamples" [16]
+Hider "raytrace" "int adaptall" [0] "string integrationmode" ["path"] "int incremental" [1] "string pixelfiltermode" ["weighted"] "string samplemode" [""] "int minsamples" [0] "int maxsamples" [16]
 Integrator "PxrPathTracer" "PxrPathTracer" "int maxPathLength" [10] "string sampleMode" ["bxdf"] "int numLightSamples" [8] "int numBxdfSamples" [8] "int numIndirectSamples" [1] "int numDiffuseSamples" [1] "int numSpecularSamples" [1] "int numSubsurfaceSamples" [1] "int numRefractionSamples" [1] "int rouletteDepth" [4] "float rouletteThreshold" [0.2] "string imagePlaneSubset" ["rman__imageplane"] "int clampDepth" [2] "float clampLuminance" [10] "int allowCaustics" [0]
 Format 960 540 1
-Display "renderman/gary/images/gary" "it" "rgba" "string filter" ["gaussian"] "float[2] filterwidth" [2 2] "int[4] quantize" [0 0 0 0] "float dither" [0] "float[2] exposure" [1 1] "float[3] remap" [0 0 0] "string connection" ["-launchURI /Applications/Pixar/RenderManStudio-20.3-maya2016/bin/it.app/Contents/MacOS/it"] "string dspyParams" [" itOpenHandler {::ice::startTimer;};;; itCloseHandler {::ice::endTimer %arglist; };;; dspyRender -renderer preview -time 79 -crop 0 1 0 1 -port 55239 -context \"_preview\" -notes \"(Sat Jul 16 11:06:38 PDT 2016)\nPxrPathTracer  MaxSamples 512  Mode bxdf  Light 8  Bsdf 8  Indir 1\""]
+Option "user" "string[1] lightgroups" ["environment"]
+Display "renderman/gary/images/gary" "it" "rgba" "string filter" ["gaussian"] "float[2] filterwidth" [2 2] "int[4] quantize" [0 0 0 0] "float dither" [0] "float[2] exposure" [1 1] "float[3] remap" [0 0 0] "string connection" ["-launchURI /Applications/Pixar/RenderManStudio-20.3-maya2016/bin/it.app/Contents/MacOS/it"] "string dspyParams" [" itOpenHandler {::ice::startTimer;};;; itCloseHandler {::ice::endTimer %arglist; };;; dspyRender -renderer preview -time 79 -crop 0 1 0 1 -port 55239 -context \"_preview\" -notes \"(Sat Jul 16 18:22:58 PDT 2016)\nPxrPathTracer  MaxSamples 512  Mode bxdf  Light 8  Bsdf 8  Indir 1\""]
 #Camera perspShape
 Clipping 0.1 10000
 Projection "perspective" "fov" [54.4322]
 ScreenWindow -1 1 -0.5625 0.5625
 Shutter 0 0
-ConcatTransform [ -0.745476 0.411625 0.524242 -2.87682e-10  1.84681e-07 0.786522 -0.617562 -3.3508e-10  0.666533 0.460378 0.586333 -3.21754e-10  2.11602 -2.58359 10.3333 1 ]
+ConcatTransform [ 0.218143 -0.0657255 0.973701 1.74248e-11  1.41804e-09 0.99773 0.0673474 1.6569e-13  0.975917 0.0146914 -0.217648 6.67015e-11  -0.463614 -3.32401 12.983 1 ]
 Camera "world" "float[2] shutteropening" [0 1]
 Option "user" "color camera_bg" [0 0 0] "float camera_bga" [0]
 Imager "background" "color color" [0 0 0] "float alpha" [0]
@@ -69,6 +70,8 @@ Attribute "user" "float[17] place2dTexture1" [1 1 0 0 0
 0 0 0 1 1 13.5 13.5 0 0 0 0 0]
 Attribute "user" "float[17] place2dTexture2" [1 1 0 0 0
 0 0 0 1 1 1 1 0 0 0 0 0]
+Attribute "user" "float[17] place2dTexture3" [1 1 0 0 0
+0 0 0 1 1 1 1 0 0 0 0 0]
 Attribute "visibility" "int transmission" [1] "int indirect" [1]
 Bxdf "PxrDiffuse" "default" 
 Attribute "user" "int shader_bindingstrength" [0]
@@ -77,35 +80,34 @@ Attribute "dice" "string referencecamera" ["worldcamera"]
 ShadingRate 1
 Attribute "displacementbound" "string coordinatesystem" ["shader"] "float sphere" [0]
 Attribute "photon" "string causticmap" [""] "string globalmap" [""]
-Attribute "user" "string irRenderCam" ["false,-2.77622,8.41349,-6.27971"]
-Attribute "user" "string irRenderCamFOV" ["54.4322"]
-Attribute "user" "string irRenderCamXform" ["-0.745476,2.77556e-17,0.666532,0,0.411625,0.786522,0.460378,0,-0.524242,0.617562,-0.586333,0,-2.77622,8.41349,-6.27971,1"]
-Attribute "user" "string irRenderCamRatio" ["1"]
 AttributeBegin 
-Attribute "identifier" "string name" ["defaultLightShape"]
-Transform [ 0.993637 -0.0471716 -0.102272 0  -0.0471675 0.650304 -0.758209 0  0.102274 0.758208 0.643941 0  0 0 0 1 ]
-Bxdf "PxrLightEmission" "visualizer" "string __instanceid" ["defaultLightShape_visualizer"]
+Attribute "identifier" "string name" ["PxrStdEnvMapLightShape1"]
+Attribute "grouping" "string membership" ["+rman__imageplane"]
+Transform [ -1 0 -1.22465e-16 0  0 1 0 0  -1.22465e-16 -0 1 0  0 0 0 1 ]
+Rotate -90 1 0 0
+Bxdf "PxrLightEmission" "visualizer" "string __instanceid" ["PxrStdEnvMapLightShape1_visualizer"]
 IfBegin "!defined(user:shader_bindingstrength) || $user:shader_bindingstrength <= 0" 
-ShadingRate 5
-Surface "renderman/gary/shaders/defaultLightShape_rfm" "float rman__LightPrimaryVisibility" [0] "string shape" ["distant"] "float intensity" [2] "color lightcolor" [1 1 1] "string lightcolormap" [""] "float[2] proceduralResolution" [1024 1024] "float linearizecolormap" [0] "float temperature" [5500] "color specAmount" [1 1 1] 
-"color diffAmount" [1 1 1] "float fixedSampleCount" [-1] "float importance" [1] "float coneangle" [20] "float penumbraangle" [5] "float penumbraexponent" [0] "string profilemap" [""] "string iesprofile" [""] "float profilerange" [-1] "float distributionAngle" [90] "float angularVisibility" [1] 
-"float rmsDisplayBarnDoors" [0] "float rmsBarnT" [0] "float rmsBarnB" [0] "float rmsBarnL" [0] "float rmsBarnR" [0] "string barnDoorMap" ["default.tex"] "color shadowColor" [0 0 0] "float traceShadows" [1] "float adaptive" [1] "string subset" [""] "string excludesubset" [""] "string shadowname" [""] 
-"float samplebase" [0.5] "float shadowmaxdist" [-1] "float bias" [-1] "float mapbias" [1] "float mapbias2" [1] "float sides" [0] "float areaNormalize" [1] "string photonTarget" [""] "string __category" ["stdrsl_plausible,defaultLightShape"] "string __group" [""] "__instanceid" ["renderman/gary/shaders/defaultLightShape_rfm_0"]
-ShadingRate 5
-AreaLightSource "renderman/gary/shaders/defaultLightShape_rfm" "defaultLightShape" "float rman__LightPrimaryVisibility" [0] "string shape" ["distant"] "float intensity" [2] "color lightcolor" [1 1 1] "string lightcolormap" [""] "float[2] proceduralResolution" [1024 1024] "float linearizecolormap" [0] "float temperature" [5500] "color specAmount" [1 1 1] 
-"color diffAmount" [1 1 1] "float fixedSampleCount" [-1] "float importance" [1] "float coneangle" [20] "float penumbraangle" [5] "float penumbraexponent" [0] "string profilemap" [""] "string iesprofile" [""] "float profilerange" [-1] "float distributionAngle" [90] "float angularVisibility" [1] 
-"float rmsDisplayBarnDoors" [0] "float rmsBarnT" [0] "float rmsBarnB" [0] "float rmsBarnL" [0] "float rmsBarnR" [0] "string barnDoorMap" ["default.tex"] "color shadowColor" [0 0 0] "float traceShadows" [1] "float adaptive" [1] "string subset" [""] "string excludesubset" [""] "string shadowname" [""] 
-"float samplebase" [0.5] "float shadowmaxdist" [-1] "float bias" [-1] "float mapbias" [1] "float mapbias2" [1] "float sides" [0] "float areaNormalize" [1] "string photonTarget" [""] "string __category" ["stdrsl_plausible,defaultLightShape"] "string __group" [""] "__instanceid" ["renderman/gary/shaders/defaultLightShape_rfm_0"]
+ShadingRate 10
+Surface "renderman/gary/shaders/PxrStdEnvMapLightShape1_rfm" "float rman__LightPrimaryVisibility" [1] "float exposure" [0] "string rman__EnvMap" [""] "color envTint" [1 1 1] "float enableProcedural" [1] "float[2] rman__ProceduralResolution" [1024 512] "color proceduralColor" [1 1 1] "float enableTemperature" [0] 
+"float temperature" [6500] "color specAmount" [1 1 1] "color diffAmount" [1 1 1] "float fixedSampleCount" [-1] "float importance" [1] "float enableShadows" [1] "color shadowColor" [0 0 0] 
+"float adaptiveShadows" [1] "float shadowMaxDist" [-1] "float shadowTraceBias" [-1] "string shadowSubset" [""] "string shadowExcludeSubset" [""] "string __group" ["environment"] "float intensity" [1] "string coordSys" ["shader"] "__instanceid" ["renderman/gary/shaders/PxrStdEnvMapLightShape1_rfm_0"]
+ShadingRate 10
+AreaLightSource "renderman/gary/shaders/PxrStdEnvMapLightShape1_rfm" "PxrStdEnvMapLightShape1" "float rman__LightPrimaryVisibility" [1] "float exposure" [0] "string rman__EnvMap" [""] "color envTint" [1 1 1] "float enableProcedural" [1] "float[2] rman__ProceduralResolution" [1024 512] "color proceduralColor" [1 1 1] "float enableTemperature" [0] 
+"float temperature" [6500] "color specAmount" [1 1 1] "color diffAmount" [1 1 1] "float fixedSampleCount" [-1] "float importance" [1] "float enableShadows" [1] "color shadowColor" [0 0 0] 
+"float adaptiveShadows" [1] "float shadowMaxDist" [-1] "float shadowTraceBias" [-1] "string shadowSubset" [""] "string shadowExcludeSubset" [""] "string __group" ["environment"] "float intensity" [1] "string coordSys" ["shader"] "__instanceid" ["renderman/gary/shaders/PxrStdEnvMapLightShape1_rfm_0"]
 Attribute "user" "int shader_bindingstrength" [0]
 IfEnd 
-Attribute "visibility" "int camera" [0]
+Attribute "visibility" "int camera" [1]
 Attribute "visibility" "int indirect" [0] "int transmission" [0]
-ShadingRate 5
+ShadingRate 10
 Sides 1
 Attribute "dice" "string offscreenstrategy" ["sphericalprojection"]
-Geometry "distantlight" "constant float anglesubtended" [1]
+ReverseOrientation 
+Opacity [1 1 1]
+Sides 1
+Geometry "envsphere" "constant float[2] resolution" [1024 512]
 AttributeEnd 
-Illuminate "defaultLightShape" 1
+Illuminate "PxrStdEnvMapLightShape1" 1
 AttributeBegin 
 AttributeEnd 
 AttributeBegin 
@@ -115,30 +117,11 @@ AttributeEnd
 AttributeBegin 
 AttributeEnd 
 AttributeBegin 
-Attribute "identifier" "string name" ["left_eye"]
-Attribute "identifier" "float id" [4]
-ConcatTransform [ 0.205882 0 0 0  0 0.205882 0 0  0 0 0.205882 0  0.100741 5.36133 0.595118 1 ]
-AttributeBegin 
-AttributeBegin 
-Attribute "identifier" "string name" ["left_eyeShape"]
-Attribute "identifier" "float id" [11]
-Sides 2
-ShadingInterpolation "smooth"
-Attribute "user" "int receivesShadows" [1]
-Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
-Attribute "shade" "string transmissionhitmode" ["shader"]
-Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
-##RLF Inject SurfaceShading -attribute sets@,initialShadingGroup,
-TransformBegin 
-Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/gary/rib/job/staticGeoCache.job.zip!renderman/gary/rib/job/left_eyeShape.job.rib"] "float[6] bound" [-1 1 -1 1 -1 1] "int __immediatesubdivide" [0]
-TransformEnd 
-AttributeEnd 
-AttributeEnd 
 AttributeEnd 
 AttributeBegin 
 Attribute "identifier" "string name" ["gary"]
 Attribute "identifier" "float id" [3]
-ConcatTransform [ 1 0 0 0  0 1 0 0  0 0 1 0  0 0 0 1 ]
+ConcatTransform [ 1 0 0 0  0 1 0 0  0 0 1 0  -0.0168796 -0.0145491 -0.0166455 1 ]
 AttributeBegin 
 AttributeBegin 
 Attribute "identifier" "string name" ["garyShape"]
@@ -159,35 +142,16 @@ AttributeBegin
 AttributeEnd 
 AttributeEnd 
 AttributeBegin 
-Attribute "identifier" "string name" ["right_eye"]
-Attribute "identifier" "float id" [6]
-ConcatTransform [ 0.205882 0 0 0  0 0.205882 0 0  0 0 0.205882 0  0.100741 5.36133 -0.594468 1 ]
-AttributeBegin 
-AttributeBegin 
-Attribute "identifier" "string name" ["right_eyeShape"]
-Attribute "identifier" "float id" [13]
-Sides 2
-ShadingInterpolation "smooth"
-Attribute "user" "int receivesShadows" [1]
-Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
-Attribute "shade" "string transmissionhitmode" ["shader"]
-Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
-##RLF Inject SurfaceShading -attribute sets@,initialShadingGroup,
-TransformBegin 
-Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/gary/rib/job/staticGeoCache.job.zip!renderman/gary/rib/job/right_eyeShape.job.rib"] "float[6] bound" [-1 1 -1 1 -1 1] "int __immediatesubdivide" [0]
-TransformEnd 
-AttributeEnd 
-AttributeEnd 
 AttributeEnd 
 AttributeBegin 
-Attribute "identifier" "string name" ["defaultLight"]
+Attribute "identifier" "string name" ["PxrStdEnvMapLight1"]
 Attribute "identifier" "float id" [1]
-ConcatTransform [ 0.993637 -0.0471716 -0.102272 0  -0.0471675 0.650304 -0.758209 0  0.102274 0.758208 0.643941 0  0 0 0 1 ]
+ConcatTransform [ -230.347 -0 -0 0  0 230.347 0 0  0 0 230.347 0  0 0 0 1 ]
 AttributeBegin 
 AttributeEnd 
 AttributeEnd 
 ##RLF ScopeEnd -name perspShape_RerenderRIS
 WorldEnd 
 ResourceEnd 
-##streammarker 1
+##streammarker 14
 FrameEnd 
