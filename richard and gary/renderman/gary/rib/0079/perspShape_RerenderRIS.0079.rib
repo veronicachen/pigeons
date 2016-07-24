@@ -1,6 +1,6 @@
 ##RenderMan RIB
 #Created by RenderMan for Maya 20.3 (@1534387 Sep 27 2015)
-#Sat Jul 23 20:37:32 PDT 2016
+#Sat Jul 23 20:46:12 PDT 2016
 version 3.04
 Option "ribparse" "string varsubst" [""]
 Option "ribparse" "string varsubst" ["$"]
@@ -52,13 +52,13 @@ Hider "raytrace" "int adaptall" [0] "string integrationmode" ["path"] "int incre
 Integrator "PxrPathTracer" "PxrPathTracer" "int maxPathLength" [10] "string sampleMode" ["bxdf"] "int numLightSamples" [8] "int numBxdfSamples" [8] "int numIndirectSamples" [1] "int numDiffuseSamples" [1] "int numSpecularSamples" [1] "int numSubsurfaceSamples" [1] "int numRefractionSamples" [1] "int rouletteDepth" [4] "float rouletteThreshold" [0.2] "string imagePlaneSubset" ["rman__imageplane"] "int clampDepth" [2] "float clampLuminance" [10] "int allowCaustics" [0]
 Format 960 540 1
 Option "user" "string[1] lightgroups" ["environment"]
-Display "renderman/gary/images/gary" "it" "rgba" "string filter" ["gaussian"] "float[2] filterwidth" [2 2] "int[4] quantize" [0 0 0 0] "float dither" [0] "float[2] exposure" [1 1] "float[3] remap" [0 0 0] "string connection" ["-launchURI /Applications/Pixar/RenderManStudio-20.3-maya2016/bin/it.app/Contents/MacOS/it"] "string dspyParams" [" itOpenHandler {::ice::startTimer;};;; itCloseHandler {::ice::endTimer %arglist; };;; dspyRender -renderer preview -time 79 -crop 0 1 0 1 -port 60881 -context \"_preview\" -notes \"(Sat Jul 23 20:37:32 PDT 2016)\nPxrPathTracer  MaxSamples 512  Mode bxdf  Light 8  Bsdf 8  Indir 1\""]
+Display "renderman/gary/images/gary" "it" "rgba" "string filter" ["gaussian"] "float[2] filterwidth" [2 2] "int[4] quantize" [0 0 0 0] "float dither" [0] "float[2] exposure" [1 1] "float[3] remap" [0 0 0] "string connection" ["-launchURI /Applications/Pixar/RenderManStudio-20.3-maya2016/bin/it.app/Contents/MacOS/it"] "string dspyParams" [" itOpenHandler {::ice::startTimer;};;; itCloseHandler {::ice::endTimer %arglist; };;; dspyRender -renderer preview -time 79 -crop 0 1 0 1 -port 60881 -context \"_preview\" -notes \"(Sat Jul 23 20:46:12 PDT 2016)\nPxrPathTracer  MaxSamples 512  Mode bxdf  Light 8  Bsdf 8  Indir 1\""]
 #Camera perspShape
 Clipping 0.1 10000
 Projection "perspective" "fov" [54.4322]
 ScreenWindow -1 1 -0.5625 0.5625
 Shutter 0 0
-ConcatTransform [ -0.99824 0.0144864 0.0575099 0  -1.54984e-08 0.969709 -0.244264 0  0.0593064 0.243834 0.968002 0  2.10567 -2.90476 19.9577 1 ]
+ConcatTransform [ 0.101056 0.0162928 0.994747 2.38785e-11  -1.16068e-10 0.999866 -0.0163766 -3.95596e-14  0.994881 -0.00165496 -0.101043 2.11179e-10  -0.196506 -3.00217 17.2874 1 ]
 Camera "world" "float[2] shutteropening" [0 1]
 Option "user" "color camera_bg" [0 0 0] "float camera_bga" [0]
 Imager "background" "color color" [0 0 0] "float alpha" [0]
@@ -153,5 +153,5 @@ AttributeEnd
 ##RLF ScopeEnd -name perspShape_RerenderRIS
 WorldEnd 
 ResourceEnd 
-##streammarker 2952
+##streammarker 3370
 FrameEnd 
